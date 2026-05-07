@@ -76,6 +76,14 @@ export const siteSettings = defineType({
       initialValue: "Nairobi · Meru",
     }),
 
+    defineField({
+      name: "whatsappNumber",
+      title: "WhatsApp Number",
+      type: "string",
+      description: "International format e.g. +254 729 836 782. Leave blank to hide the WhatsApp button.",
+      initialValue: "+254 729 836 782",
+    }),
+
     // ─── Social Links ──────────────────────────────────
     defineField({
       name: "socialLinks",

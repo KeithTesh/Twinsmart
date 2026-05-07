@@ -11,7 +11,7 @@ import type {
 // ─── Site Settings ────────────────────────────────────────────────────
 export const siteSettingsQuery = groq`
   *[_type == "siteSettings"][0] {
-    title, tagline, email, phone, address,
+    title, tagline, email, phone, whatsappNumber, address,
     poBox, cities, logo, socialLinks,
     seoDescription, ogImage, stats
   }

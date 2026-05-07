@@ -95,16 +95,17 @@ export interface SocialLinks {
 }
 
 export interface SiteSettings {
-  title:           string;
-  tagline?:        string;
-  logo?:           SanityImageWithAlt;
-  email?:          string;
-  phone?:          string;
-  address?:        string;
-  poBox?:          string;
-  cities?:         string;
-  socialLinks?:    SocialLinks;
-  seoDescription?: string;
-  ogImage?:        SanityImageWithAlt;
-  stats?:          Stat[];
+  title:            string;
+  tagline?:         string;
+  logo?:            SanityImageWithAlt;
+  email?:           string;
+  phone?:           string;
+  whatsappNumber?:  string;
+  address?:         string;
+  poBox?:           string;
+  cities?:          string;
+  socialLinks?:     SocialLinks;
+  seoDescription?:  string;
+  ogImage?:         SanityImageWithAlt;
+  stats?:           Stat[];
 }

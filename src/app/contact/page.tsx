@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CONTACT, TEAM_MEMBERS } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
+import { AnimateIn } from "@/components/ui/AnimateIn";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -16,10 +17,14 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="pt-24 md:pt-40 pb-10 md:pb-14 bg-charcoal">
         <div className="container-tw">
-          <p className="label-section text-cream/30 mb-4">E · Contact</p>
-          <h1 className="font-display text-display-xl text-cream max-w-2xl">
-            Let's build something together
-          </h1>
+          <AnimateIn delay={0.05} amount={0.01}>
+            <p className="label-section text-cream/30 mb-4">E · Contact</p>
+          </AnimateIn>
+          <AnimateIn delay={0.18} amount={0.01}>
+            <h1 className="font-display text-display-xl text-cream max-w-2xl">
+              Let&apos;s build something together
+            </h1>
+          </AnimateIn>
         </div>
       </section>
 
@@ -27,7 +32,7 @@ export default function ContactPage() {
       <section className="section-pad bg-cream">
         <div className="container-tw grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Left — form */}
-          <div>
+          <AnimateIn direction="left" delay={0.05}>
             <p className="label-section text-stone mb-8">Send us a brief</p>
             <form className="space-y-6">
               <div>
@@ -70,42 +75,44 @@ export default function ContactPage() {
                 Send message →
               </Button>
             </form>
-          </div>
+          </AnimateIn>
 
           {/* Right — contact details */}
-          <div className="space-y-10">
-            <div>
-              <p className="label-section text-stone mb-4">Office</p>
-              <p className="text-charcoal leading-relaxed">{CONTACT.address}</p>
-              <p className="text-charcoal">{CONTACT.city}</p>
-              <p className="text-stone text-sm mt-1">{CONTACT.poBox}</p>
-            </div>
+          <AnimateIn direction="right" delay={0.15}>
+            <div className="space-y-10">
+              <div>
+                <p className="label-section text-stone mb-4">Office</p>
+                <p className="text-charcoal leading-relaxed">{CONTACT.address}</p>
+                <p className="text-charcoal">{CONTACT.city}</p>
+                <p className="text-stone text-sm mt-1">{CONTACT.poBox}</p>
+              </div>
 
-            <div>
-              <p className="label-section text-stone mb-4">Direct contact</p>
-              <a href={`mailto:${CONTACT.email}`} className="block text-charcoal hover:text-terracotta transition-colors font-display text-xl mb-2">
-                {CONTACT.email}
-              </a>
-              <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="block label-section text-stone hover:text-terracotta transition-colors">
-                {CONTACT.phone}
-              </a>
-            </div>
+              <div>
+                <p className="label-section text-stone mb-4">Direct contact</p>
+                <a href={`mailto:${CONTACT.email}`} className="block text-charcoal hover:text-terracotta transition-colors font-display text-xl mb-2">
+                  {CONTACT.email}
+                </a>
+                <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="block label-section text-stone hover:text-terracotta transition-colors">
+                  {CONTACT.phone}
+                </a>
+              </div>
 
-            <div>
-              <p className="label-section text-stone mb-4">Key contacts</p>
-              <div className="space-y-4">
-                {[director, partner].map((m) => (
-                  <div key={m.name} className="flex flex-col">
-                    <span className="text-sm text-charcoal font-medium">{m.name}</span>
-                    <span className="label-index text-stone">{m.role}</span>
-                    <a href={`tel:${m.phone.replace(/\s/g, "")}`} className="label-index text-stone hover:text-terracotta transition-colors">
-                      {m.phone}
-                    </a>
-                  </div>
-                ))}
+              <div>
+                <p className="label-section text-stone mb-4">Key contacts</p>
+                <div className="space-y-4">
+                  {[director, partner].map((m) => (
+                    <div key={m.name} className="flex flex-col">
+                      <span className="text-sm text-charcoal font-medium">{m.name}</span>
+                      <span className="label-index text-stone">{m.role}</span>
+                      <a href={`tel:${m.phone.replace(/\s/g, "")}`} className="label-index text-stone hover:text-terracotta transition-colors">
+                        {m.phone}
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </AnimateIn>
         </div>
       </section>
     </>

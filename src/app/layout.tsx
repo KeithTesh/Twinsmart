@@ -3,6 +3,8 @@ import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingButtons } from "@/components/ui/FloatingButtons";
+import { getSiteSettings } from "@/sanity/lib/queries";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -77,7 +79,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const settings = await getSiteSettings();
+
   return (
     <html
       lang="en"
@@ -87,6 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <FloatingButtons whatsappNumber={settings?.whatsappNumber} />
       </body>
     </html>
   );
